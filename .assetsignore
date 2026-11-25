@@ -1,0 +1,10 @@
+# Archivos del repositorio que NO se publican en la web
+.git
+.gitignore
+.assetsignore
+wrangler.jsonc
+README.md
+CUMPLIMIENTO-ISO.md
+capturas
+node_modules
+.wrangler

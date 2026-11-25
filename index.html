@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conjunto Residencial Caminos del Vínculo · Soacha</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="pub-nav">
+  <a class="logo" href="index.html"><span class="mark">CV</span><span>Caminos del Vínculo<small>Conjunto residencial · Soacha</small></span></a>
+  <nav aria-label="Secciones"><a href="#normas">Convivencia</a><a href="#areas">Zonas comunes</a><a href="#comunicados">Comunicados</a><a href="#contacto">Contacto</a></nav>
+  <div class="toolbar"><a class="btn btn-ghost" href="#pse"><i data-i="card"></i>Pagar con PSE</a><a class="btn btn-primary" href="login.html">Ingresar</a></div>
+</header>
+
+<main id="contenido"><section class="hero">
+  <span class="eyebrow">Conjunto Residencial · Soacha, Cundinamarca</span>
+  <h1>Una comunidad organizada, segura y bien informada.</h1>
+  <p>Consulte comunicados, reserve zonas comunes, autorice visitas y revise su estado de cuenta desde un solo lugar.</p>
+  <div class="cta"><a class="btn btn-accent" href="login.html">Ingresar al portal <i data-i="arrow"></i></a><a class="btn btn-ghost" href="#normas">Manual de convivencia</a></div>
+</section>
+
+<div class="info-strip card" id="contacto">
+  <div><span class="ic"><i data-i="clock"></i></span><div><b>Lun a Vie · 8:00 a. m. – 5:00 p. m.</b><span>Horario de atención de administración</span></div></div>
+  <div><span class="ic"><i data-i="phone"></i></span><div><b>314 431 9019</b><span>Portería · 24 horas</span></div></div>
+  <div id="pse"><span class="ic"><i data-i="card"></i></span><div><b>Pago en línea por PSE</b><span>Cuotas de administración y otros conceptos</span></div></div>
+</div>
+
+<section class="sec" id="normas">
+  <div class="sec-h"><div><span class="eyebrow">Manual de convivencia</span><h2>Normas destacadas</h2></div><a class="btn btn-ghost" href="#"><i data-i="download"></i>Descargar manual (PDF)</a></div>
+  <div class="cards-3">
+    <div class="card rule"><div class="ic"><i data-i="car"></i></div><h4>Velocidad en parqueaderos</h4><p>La velocidad máxima permitida para vehículos en áreas comunes es de 10 km/h.</p><span class="tag t-info">Seguridad vial</span></div>
+    <div class="card rule"><div class="ic"><i data-i="paw"></i></div><h4>Tenencia de mascotas</h4><p>Las mascotas no deben hacer sus necesidades en áreas comunes. Los propietarios deben recoger y disponer adecuadamente.</p><span class="tag t-ok">Convivencia</span></div>
+    <div class="card rule"><div class="ic"><i data-i="cart"></i></div><h4>Carros de mercado</h4><p>Use los carros con cuidado y sin obstruir pasillos, ascensores ni zonas de paso. Devuélvalos a su lugar.</p><span class="tag t-neutral">Respeto</span></div>
+  </div>
+</section>
+
+<section class="sec" id="areas">
+  <div class="sec-h"><div><span class="eyebrow">Infraestructura</span><h2>Zonas del conjunto</h2></div></div>
+  <div class="areas">
+    <div class="card area"><span class="ic"><i data-i="building"></i></span><b>Apartamentos</b><span class="muted">3 torres residenciales</span></div>
+    <div class="card area"><span class="ic"><i data-i="parking"></i></span><b>Parqueaderos comunales</b><span class="muted">Asignados por unidad</span></div>
+    <div class="card area"><span class="ic"><i data-i="car"></i></span><b>Parqueaderos de visitantes</b><span class="muted">Registro en portería</span></div>
+    <div class="card area"><span class="ic"><i data-i="access"></i></span><b>Movilidad reducida</b><span class="muted">Cupos preferenciales</span></div>
+    <div class="card area"><span class="ic"><i data-i="bike"></i></span><b>Motos y bicicletas</b><span class="muted">Zona señalizada</span></div>
+  </div>
+</section>
+
+<section class="sec" id="comunicados">
+  <div class="sec-h"><div><span class="eyebrow">Administración</span><h2>Comunicados recientes</h2></div><a class="btn btn-ghost" href="login.html">Ver todos</a></div>
+  <div class="cards-3" id="com"></div>
+</section>
+
+</main><footer class="foot">
+  <a class="logo" href="index.html"><span class="mark">CV</span><span>Conjunto Residencial Caminos del Vínculo</span></a>
+  <span>© 2026 · Soacha, Cundinamarca · <a href="politica-datos.html" style="color:#cbd5e1">Política de tratamiento de datos</a></span>
+</footer>
+<script src="assets/icons.js"></script>
+<script src="assets/data.js"></script>
+<script>
+document.getElementById('com').innerHTML = DB.get('comunicados').slice(0,3).map(c =>
+  `<div class="card rule"><span class="eyebrow">${fmt.date(c.fecha)}</span><h4 style="margin-top:8px">${c.titulo}</h4><p>${c.cuerpo}</p></div>`).join('');
+</script>
+</body>
+</html>

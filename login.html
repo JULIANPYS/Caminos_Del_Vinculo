@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ingresar · Caminos del Vínculo</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip" href="#f">Saltar al formulario</a>
+<main class="auth">
+  <aside class="auth-aside">
+    <a class="logo" href="index.html"><span class="mark">CV</span><span>Caminos del Vínculo<small>Portal residencial</small></span></a>
+    <div>
+      <h2>La administración del conjunto, en un solo portal.</h2>
+      <ul>
+        <li><i data-i="check"></i>Estado de cuenta y pagos en línea</li>
+        <li><i data-i="check"></i>Correspondencia y visitas notificadas al instante</li>
+        <li><i data-i="check"></i>Reservas de zonas comunes y PQR con seguimiento</li>
+      </ul>
+    </div>
+    <span style="font-size:12px;color:#93a9bd">© 2026 · Conjunto Residencial Caminos del Vínculo · Soacha</span>
+  </aside>
+  <section class="auth-form">
+    <form id="f">
+      <div class="notice warn" id="exp" style="display:none;margin-bottom:18px"><span>!</span>Su sesión se cerró por inactividad. Ingrese de nuevo.</div>
+      <span class="eyebrow">Acceso seguro</span>
+      <h1 style="margin-top:6px">Ingresar al portal</h1>
+      <p class="muted" style="margin-top:4px">Seleccione su perfil e ingrese con sus credenciales.</p>
+      <div class="roles" id="roles" role="radiogroup" aria-label="Perfil de acceso">
+        <span class="on" data-r="propietario.html">Propietario</span>
+        <span data-r="inquilino.html">Inquilino</span>
+        <span data-r="porteria.html">Portería</span>
+        <span data-r="admin.html">Admin.</span>
+      </div>
+      <div class="field"><label for="em">Correo electrónico</label><input class="input" id="em" type="email" autocomplete="username" placeholder="nombre@correo.com" value="carlos.rincon@correo.com"></div>
+      <div class="field"><label for="pw">Contraseña</label><input class="input" id="pw" type="password" autocomplete="current-password" value="demo1234"></div>
+      <div class="row"><span class="chk"><i aria-hidden="true"><svg class="ico" style="width:12px;height:12px;color:#fff" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>Recordar este equipo</span><a href="#">¿Olvidó su contraseña?</a></div>
+      <label class="chk" style="font-size:12.5px;align-items:flex-start;margin:-8px 0 18px;color:var(--muted)"><input type="checkbox" required checked style="margin-top:3px">Autorizo el tratamiento de mis datos según la <a class="link" href="politica-datos.html" style="font-size:12.5px">política de datos personales</a> (Ley 1581 de 2012).</label>
+      <button class="btn btn-primary" style="width:100%;height:42px">Ingresar <i data-i="arrow"></i></button>
+      <div class="secure"><i data-i="lock" style="width:14px;height:14px"></i>Conexión cifrada (HTTPS) · Bloqueo tras 5 intentos fallidos</div>
+      <p class="muted" style="text-align:center;font-size:12px;margin-top:18px">Versión de demostración: cualquier contraseña funciona.</p>
+    </form>
+  </section>
+</main>
+<script src="assets/icons.js"></script>
+<script>
+if (location.search.includes('expirada')) document.getElementById('exp').style.display = 'flex';
+let dest = 'propietario.html';
+document.querySelectorAll('#roles span').forEach(s => { s.setAttribute('role', 'radio'); s.tabIndex = 0; s.setAttribute('aria-checked', s.classList.contains('on'));
+  s.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); s.click(); } }; });
+document.querySelectorAll('#roles span').forEach(s => s.onclick = () => {
+  document.querySelectorAll('#roles span').forEach(x => x.setAttribute('aria-checked', x === s));
+  document.querySelectorAll('#roles span').forEach(x => x.classList.remove('on'));
+  s.classList.add('on'); dest = s.dataset.r;
+});
+document.getElementById('f').onsubmit = e => { e.preventDefault(); sessionStorage.clear(); location.href = dest; };
+</script>
+</body>
+</html>

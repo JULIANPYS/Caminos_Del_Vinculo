@@ -26,7 +26,7 @@ function inicio() {
     <div class="qa">
       <a class="card" href="#visitas"><span class="ic">${ico('key')}</span><div><b>Autorizar visita</b><br><span>Pre-registre a sus invitados</span></div></a>
       <a class="card" href="#solicitudes"><span class="ic">${ico('truck')}</span><div><b>Solicitudes</b><br><span>Mudanzas, obras y materiales</span></div></a>
-      <a class="card" href="#reservas"><span class="ic">${ico('calendar')}</span><div><b>Reservar zona común</b><br><span>Salón social, BBQ, cancha</span></div></a>
+      <a class="card" href="#reservas"><span class="ic">${ico('calendar')}</span><div><b>Reservar zona común</b><br><span>Salones, BBQ, fogatas, cancha</span></div></a>
       <a class="card" href="#pqr"><span class="ic">${ico('msg')}</span><div><b>Radicar PQRSF</b><br><span>Respuesta en máx. 15 días hábiles</span></div></a>
     </div>
     <div class="grid-2">
@@ -211,7 +211,7 @@ function reservas() {
     bind(v) {
       v.querySelector('#n').onclick = () => {
         if (ES_PROP && u().saldo) return UI.modal('Reserva no disponible', `<div class="notice warn"><span>${ico('wallet')}</span>Según el manual de convivencia, las reservas requieren estar a paz y salvo. Su saldo es ${fmt.cop(u().saldo)}.</div>`, () => { location.hash = 'cuenta'; }, 'Ir a pagar');
-        UI.modal('Nueva reserva', `<div class="field"><label>Zona</label><select name="zona"><option>Salón social</option><option>BBQ</option><option>Cancha múltiple</option></select></div>
+        UI.modal('Nueva reserva', `<div class="field"><label>Zona</label><select name="zona"><option>Salón social 1</option><option>Salón social 2</option><option>Salón social 3</option><option>Área BBQ 1</option><option>Área BBQ 2</option><option>Zona de fogatas</option><option>Cancha de fútbol infantil</option></select></div>
         <div class="form-grid"><div class="field"><label>Fecha</label><input class="input" type="date" name="fecha" required value="${fmt.today()}" min="${fmt.today()}"></div><div class="field"><label>Horario</label><select name="hora"><option>08:00 – 13:00</option><option>14:00 – 20:00</option></select></div></div>
         <label class="chk" style="font-size:13px"><input type="checkbox" required> Acepto el reglamento de uso y el depósito reembolsable.</label>`,
         d => { DB.add('reservas', { zona: d.zona, fecha: d.fecha, hora: d.hora, unidad: UNIDAD, estado: 'Pendiente' }); UI.toast('Solicitud enviada a administración'); App.refresh(); }, 'Solicitar');

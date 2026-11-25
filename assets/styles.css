@@ -109,7 +109,7 @@ td.id{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
 
 /* ---------- Login ---------- */
 .auth{display:grid;grid-template-columns:1.05fr 1fr;min-height:100vh}
-.auth-aside{background:radial-gradient(700px 400px at 100% 0%,rgba(47,111,94,.35),transparent 60%),linear-gradient(160deg,var(--brand),var(--ink));color:#fff;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between}
+.auth-aside{background:linear-gradient(160deg,rgba(22,50,74,.9),rgba(15,31,46,.95)),url('https://cbolivarstorageprod.blob.core.windows.net/files-v2/2024-11/fachada-caminos-del-vinculo.webp') center/cover,linear-gradient(160deg,var(--brand),var(--ink));color:#fff;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between}
 .auth-aside .logo{color:#fff}.auth-aside .logo .mark{background:#fff;color:var(--brand)}.auth-aside .logo small{color:#93a9bd}
 .auth-aside h2{font-size:34px;line-height:1.15;font-weight:600;letter-spacing:-.02em;max-width:460px}
 .auth-aside ul{margin-top:28px;display:flex;flex-direction:column;gap:14px}
